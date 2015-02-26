@@ -1,0 +1,41 @@
+
+	
+	<form role="form" novalidate ng-submit="submit(username,password)" class="Absolute-Center login-form">
+		
+		<h1>Welcome</h1>
+
+		<div class="form-group">
+		    <!-- <label for="user">Email address</label> -->
+		    <input 
+		    type="text" 
+		    class="form-control" 
+		    id="user" 
+		    placeholder="Username"
+		    ng-model="username">
+		</div>
+
+		<div class="form-group">
+		    <!-- <label for="user">Password</label> -->
+		    <input 
+		    type="password" 
+		    class="form-control" 
+		    id="user" 
+		    placeholder="Password"
+		    ng-model="password">
+		</div>
+
+		<button class="btn btn-primary" ui-sref="question1">Guest</button>
+
+		<button class="btn btn-primary pull-right" type="submit">Login</button>
+
+		<p>Enter login details if you are the administrator else click guest to proceed.</p>
+
+		<div class="alert alert-danger animated" role="alert" ng-show="loginError">
+		  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		  <span class="sr-only">Error:</span>
+		  Incorrect Login details
+		</div>
+
+	</form>
+
+

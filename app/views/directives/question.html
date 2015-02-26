@@ -1,0 +1,169 @@
+<form name="question{{questionNumber}}" novalidation>
+
+<div class="container">
+	<!-- <h1>Question {{questionNumber}}</h1>
+
+	<h2>{{questionText}}</h2> -->
+
+	
+		
+		<section class="question-section">
+			
+			<h1 class="col-xs-2 col-sm-1 col-sm-offset-1">
+				{{questionNumber}}
+			</h1>
+
+			<div class="col-xs-10   col-lg-11">
+				<p>{{questionText}}</p>
+			</div>
+
+		</section>
+		
+
+		<div class="clearfix"></div>
+
+		<section class="answer-section answerA-section">
+			
+			<h2 class="col-xs-1 col-sm-offset-1">
+				A
+			</h2>
+
+			<p class="col-xs-10 col-sm-11">{{answerA}}</p>
+
+			<div class="clearfix"></div>
+
+			<div class="col-xs-1 col-sm-offset-1">
+				<label class="radio-btn radioA" ng-class="{'active': answer == 'a' || submitted[currentQuestion -1].selectedAnswer == 'a'}">
+					<input type="radio" ng-model="answer" value="a" ng-disabled="submitted[currentQuestion -1].answered">
+				</label>
+			</div>
+
+			<div class="col-xs-10 bar-container">
+				<div class="outer-bar">
+					<div class="barA inner-bar" style="width: {{percent(question.a,total)}}%"></div>
+				</div>
+			</div>
+
+		</section>
+		
+		<div class="clearfix"></div>
+
+		<section class="answer-section answerB-section">
+			
+			<h2 class="col-xs-1 col-sm-offset-1">
+				B
+			</h2>
+
+			<p class="col-xs-10 col-sm-11">{{answerB}}</p>
+
+			<div class="clearfix"></div>
+
+			<div class="col-xs-1 col-sm-offset-1">
+				<label class="radio-btn radioB" ng-class="{'active': answer== 'b' || submitted[currentQuestion -1].selectedAnswer == 'b'}">
+					<input type="radio" ng-model="answer" value="b" ng-disabled="submitted[currentQuestion -1].answered">
+				</label>
+			</div>
+
+			<div class="col-xs-10 bar-container">
+				<div class="outer-bar">
+					<div class="barB inner-bar" style="width: {{percent(question.b,total)}}%"></div>
+				</div>
+			</div>
+
+		</section>
+		
+		<div class="clearfix"></div>
+
+		<section class="answer-section answerC-section">
+			
+			<h2 class="col-xs-1 col-sm-offset-1">
+				C
+			</h2>
+
+			<p class="col-xs-10 col-sm-11">{{answerC}}</p>
+
+			<div class="clearfix"></div>
+
+			<div class="col-xs-1 col-sm-offset-1">
+				<label class="radio-btn radioC" ng-class="{'active': answer== 'c' || submitted[currentQuestion -1].selectedAnswer == 'c'}">
+					<input type="radio" ng-model="answer" value="c" ng-disabled="submitted[currentQuestion -1].answered">
+				</label>
+			</div>
+
+			<div class="col-xs-10 bar-container">
+				<div class="outer-bar">
+					<div class="barC inner-bar" style="width: {{percent(question.c,total)}}%"></div>
+				</div>
+			</div>
+
+		</section>
+		
+		<div class="clearfix"></div>
+
+		<section class="answer-section answerD-section">
+			
+			<h2 class="col-xs-1 col-sm-offset-1">
+				D
+			</h2>
+
+			<p class="col-xs-10 col-sm-11">{{answerD}}</p>
+
+			<div class="clearfix"></div>
+
+			<div class="col-xs-1 col-sm-offset-1">
+				<label class="radio-btn radioD" ng-class="{'active': answer== 'd' || submitted[currentQuestion -1].selectedAnswer == 'd'}">
+					<input type="radio" ng-model="answer" value="d" ng-disabled="submitted[currentQuestion -1].answered">
+				</label>
+			</div>
+
+			<div class="col-xs-10 bar-container">
+				<div class="outer-bar">
+					<div class="barD inner-bar" style="width:{{percent(question.d,total)}}%"></div>
+				</div>
+			</div>
+
+		</section>
+		
+		<div class="clearfix"></div>
+
+</div>
+
+
+<footer class="footer-section">
+			
+	<div class="user-footer" ng-if="!loggedIn()">
+
+		<div class="pull-left left-footer total-votes">
+			Total Votes <br >
+			<span>{{total}}</span>
+		</div>
+
+		<button ng-click="submit(answer)" class="pull-left right-footer" ng-disabled="submitted[currentQuestion -1]">
+			Submit
+		</button>
+
+
+	</div>
+
+	<div class="admin-footer" ng-if="loggedIn()">
+
+		<div class="pull-left left-footer total-votes">
+			Total Votes <br >
+			<span>{{total}}</span>
+		</div>
+
+		<button class="glyphicon glyphicon-repeat reset-footer pull-left" ng-click="resetQuestion()"></button>
+
+		<button ng-click="prevState()" class="pull-left middle-footer controls">
+			<span></span>
+		</button>
+
+		<button ng-click="nextState()" class="pull-left right-footer controls">
+			<span></span>
+		</button>
+
+	</div>
+
+</footer>
+
+</form>
