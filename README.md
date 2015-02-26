@@ -1,3 +1,3 @@
 # polls
 
-yeoman built app using angular generator
+yeoman built app using angular generator and firebase
