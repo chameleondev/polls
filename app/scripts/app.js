@@ -42,7 +42,7 @@ angular
 
                $scope.submit = function(u,p){
                   
-                  if(Auth.login(u,p) === 'error'){
+                  if((Auth.login(u,p) === 'error') || !u || !p){
                     console.log('there was an error!');
                     $scope.loginError = true;
                   }
